@@ -6,6 +6,7 @@ It is an opensource "explorer" of files in the terminal for linux. (Maybe it wil
  - Option to stay in directory
  - Option to edit files
  - Option to move files
+ - [Board](https://github.com/users/Vladimir-Urik/projects/10/views/2)
 
 ## Showcase
 ![image](https://github.com/Vladimir-Urik/cl/assets/47532155/566b062a-3cb8-41f3-b0f8-cce43188d8e1)
