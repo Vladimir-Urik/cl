@@ -2,7 +2,7 @@
 It is an opensource "explorer" of files in the terminal for linux. (Maybe it will also work on windows and mac. But I haven't tested it)
 
 ## Roadmap
- - Option to open directory in "files" (On fedora)
+ - Option to open directory in "files" (On fedora) ✅
  - Option to stay in directory
  - Option to edit files
  - Option to move files
