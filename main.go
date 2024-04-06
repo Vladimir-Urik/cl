@@ -10,6 +10,7 @@ import (
 	"github.com/Vladimir-Urik/cl/utils"
 	"github.com/eiannone/keyboard"
 	"golang.org/x/crypto/ssh/terminal"
+	"os"
 	"os/exec"
 )
 
@@ -20,6 +21,18 @@ func main() {
 	activeIndex := 0
 	directory := utils.GetDirectory()
 	filesAndDirs := utils.GetAllDirectories(utils.GetDirectory())
+
+	if len(os.Args) > 1 {
+		directory = os.Args[1]
+
+		if !utils.IsDirectory(directory) {
+			println("Invalid directory path provided (", directory, ")")
+			println("Please provide a valid directory path")
+			os.Exit(1)
+		}
+
+		filesAndDirs = utils.GetAllDirectories(directory)
+	}
 
 	lastWidth := 0
 	lastHeight := 0
@@ -135,7 +148,5 @@ func main() {
 				activeIndex = 0
 			}
 		}
-
-		println(char)
 	}
 }

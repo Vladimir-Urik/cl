@@ -27,9 +27,6 @@ func GetAllDirectories(path string) []structs.ListItem {
 			itemType = enums.Directory
 		}
 
-		println(path)
-		println(file.Name())
-
 		filesAndDirs = append(filesAndDirs, structs.ListItem{
 			Path:          path + "/" + file.Name(),
 			Name:          file.Name(),
@@ -64,4 +61,13 @@ func DeleteFile(path string) interface{} {
 	}
 
 	return nil
+}
+
+func IsDirectory(directory string) bool {
+	fileInfo, err := os.Stat(directory)
+	if err != nil {
+		return false
+	}
+
+	return fileInfo.IsDir()
 }
