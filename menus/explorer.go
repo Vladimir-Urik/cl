@@ -2,6 +2,7 @@ package menus
 
 import (
 	"github.com/Vladimir-Urik/cl/structs"
+	"github.com/Vladimir-Urik/cl/utils"
 	"github.com/fatih/color"
 )
 
@@ -45,7 +46,12 @@ func PrintExplorer(directory string, activeIndex int, filesAndDirs []structs.Lis
 	}
 
 	println("")
-	println("w - up, s - down, d - enter, a - back, q - quit, r - delete")
+
+	if utils.OsId == "fedora" {
+		println("w - up, s - down, d - enter, a - back, q - quit, r - delete, o - open in nautilus")
+	} else {
+		println("w - up, s - down, d - enter, a - back, q - quit, r - delete")
+	}
 }
 
 func printFileDeletionConfirmation(file structs.ListItem) {

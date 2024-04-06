@@ -10,6 +10,7 @@ import (
 	"github.com/Vladimir-Urik/cl/utils"
 	"github.com/eiannone/keyboard"
 	"golang.org/x/crypto/ssh/terminal"
+	"os/exec"
 )
 
 var isInMainMenu = true
@@ -22,6 +23,8 @@ func main() {
 
 	lastWidth := 0
 	lastHeight := 0
+
+	utils.LoadOSInfo()
 
 	go func() {
 		for {
@@ -105,6 +108,14 @@ func main() {
 				isInMainMenu = false
 				fileToDelete = filesAndDirs[activeIndex]
 			}
+
+			if char == 111 {
+				if utils.OsId != "fedora" {
+					continue
+				}
+
+				exec.Command("nautilus", directory).Start()
+			}
 		}
 
 		if !isInMainMenu && fileToDelete != (structs.ListItem{}) {
@@ -124,5 +135,7 @@ func main() {
 				activeIndex = 0
 			}
 		}
+
+		println(char)
 	}
 }
