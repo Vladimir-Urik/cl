@@ -88,6 +88,10 @@ func main() {
 			}
 
 			if char == 100 {
+				if len(filesAndDirs) < 1 {
+					continue
+				}
+
 				if filesAndDirs[activeIndex].Type == enums.File {
 					continue
 				}
@@ -114,6 +118,10 @@ func main() {
 			}
 
 			if char == 114 {
+				if len(filesAndDirs) < 1 {
+					continue
+				}
+
 				if filesAndDirs[activeIndex].Type == enums.Directory {
 					continue
 				}
